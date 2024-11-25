@@ -1,12 +1,9 @@
-#!/usr/bin/env python
 import os, sys, tqdm
 from huggingface_hub import login
 from transformers import AutoModelForImageSegmentation
 
-# append project directory to path so predict.py can be imported
-sys.path.append('.')
-from predict import MODEL_CACHE, HF_TOKEN
-
+HF_TOKEN = "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"
+MODEL_CACHE = "model-cache/"
 logged_in = False 
 
 def login_hf():

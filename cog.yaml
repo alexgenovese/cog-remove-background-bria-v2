@@ -12,10 +12,11 @@ build:
     - "diffusers==0.18.2"
     - "accelerate==0.18.0"
     - "opencv-python==4.7.0.68"
-    - "controlnet_aux==0.0.3"
     - "huggingface_hub"
     - "tqdm"
     - "matplotlib"
+    - "kornia"
+    - "timm"
 
 # predict.py defines how predictions are run on your model
 predict: "predict.py:Predictor"

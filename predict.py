@@ -1,11 +1,12 @@
 # Prediction interface for Cog
 from cog import BasePredictor, Input, Path
-import torch
+import torch, os, sys
 from PIL import Image
-import matplotlib.pyplot as plt
 from torchvision import transforms
 from transformers import AutoModelForImageSegmentation
-from downloadweights import start_download
+
+sys.path.append("./script")
+from download_weights import start_download
 
 MODEL_CACHE = "model-cache/"
 
@@ -34,7 +35,6 @@ class Predictor(BasePredictor):
             transforms.ToTensor(),
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
         ])
-
 
         input_images = transform_image(image).unsqueeze(0).to('cuda')
 

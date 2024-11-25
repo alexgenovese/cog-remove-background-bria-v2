@@ -1,11 +1,13 @@
 # Prediction interface for Cog
 from cog import BasePredictor, Input, Path
-import torch
+import torch, os, sys
 from PIL import Image
-import matplotlib.pyplot as plt
+from diffusers.utils import load_image
 from torchvision import transforms
 from transformers import AutoModelForImageSegmentation
-from downloadweights import start_download
+
+sys.path.append("./script")
+from download_weights import start_download
 
 MODEL_CACHE = "model-cache/"
 DEVICE = "mps"
@@ -23,10 +25,12 @@ class Predictor(BasePredictor):
 
     def predict(
         self,
-        image: Path = Input(description="Remove background from this image"),
+        image="https://fffiloni-diffusers-image-outpaint.hf.space/file=/tmp/gradio/e6846698832579693cacb09bc4ac8c8e0d3e7ec4ef6dda430fee13b05146c512/example_3.jpg"
     ) -> Path:
         """Run a single prediction on the model"""
-        image = Image.open(image)
+        print("Start inference")
+        image = load_image(image)
+        # image = Image.open(image)
         
         # Data settings
         image_size = (1024, 1024)
@@ -51,3 +55,9 @@ class Predictor(BasePredictor):
         image.save(save_path)
 
         return Path(save_path)
+
+
+if __name__ == "__main__":
+    pred = Predictor()
+    pred.setup()
+    pred.predict()
