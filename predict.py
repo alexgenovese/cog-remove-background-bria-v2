@@ -14,7 +14,7 @@ DEVICE = "cuda"
 class Predictor(BasePredictor):
     def setup(self) -> None:
         """Load the model into memory to make running multiple predictions efficient"""
-        start_download()
+        # start_download()
         
         self.model = AutoModelForImageSegmentation.from_pretrained('briaai/RMBG-2.0', trust_remote_code=True, cache_dir=MODEL_CACHE)
         torch.set_float32_matmul_precision(['high', 'highest'][0])
