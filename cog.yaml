@@ -6,17 +6,8 @@ build:
   system_packages:
     - "libgl1-mesa-glx"
     - "libglib2.0-0"
-  python_packages:
-    - "torch==2.0.1"
-    - "transformers==4.28.1"
-    - "diffusers==0.18.2"
-    - "accelerate==0.18.0"
-    - "opencv-python==4.7.0.68"
-    - "huggingface_hub"
-    - "tqdm"
-    - "matplotlib"
-    - "kornia"
-    - "timm"
+  
+  python_requirements: requirements.txt
 
 # predict.py defines how predictions are run on your model
 predict: "predict.py:Predictor"

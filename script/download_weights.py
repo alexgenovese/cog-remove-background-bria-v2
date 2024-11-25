@@ -16,7 +16,7 @@ def start_download():
     if not os.path.exists(MODEL_CACHE):
         os.makedirs(MODEL_CACHE)
         # not exists directory, so not exists weights
-        model = AutoModelForImageSegmentation.from_pretrained('briaai/RMBG-2.0', trust_remote_code=True, cache_dir=MODEL_CACHE)
+        model = AutoModelForImageSegmentation.from_pretrained('briaai/RMBG-2.0', trust_remote_code=True)
         model.save_pretrained(MODEL_CACHE)
 
 

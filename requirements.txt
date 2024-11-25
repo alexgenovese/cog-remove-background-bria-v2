@@ -1,9 +1,14 @@
-# torch==2.0.1
-transformers==4.28.1
-diffusers==0.18.2
-accelerate==0.18.0
-opencv-python==4.7.0.68
-huggingface_hub
-tqdm
-kornia
+torch
+accelerate
+opencv-python
+spaces
+pillow
+numpy
 timm
+kornia
+prettytable
+typing
+scikit-image
+huggingface_hub
+transformers>=4.39.1
+loadimg>=0.1.1
