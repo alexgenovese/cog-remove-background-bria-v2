@@ -10,6 +10,5 @@ prettytable
 typing
 scikit-image
 huggingface_hub
-transformers>=4.39.1
-loadimg>=0.1.1
+transformers>=4.22.0
 diffusers
