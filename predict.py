@@ -45,14 +45,7 @@ class Predictor(BasePredictor):
     
     def get_image(self, image: str):
         image = Image.open(image).convert("RGB")
-        transform = transforms.Compose(
-            [
-                transforms.ToTensor(),
-                transforms.Lambda(lambda x: 2.0 * x - 1.0),
-            ]
-        )
-        img: torch.Tensor = transform(image)
-        return img[None, ...]
+        return image
     
 
     def predict(
