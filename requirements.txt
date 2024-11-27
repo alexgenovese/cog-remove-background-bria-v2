@@ -12,4 +12,4 @@ scikit-image
 huggingface_hub
 transformers>=4.22.0
 diffusers
-PIL
+Pillow
