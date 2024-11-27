@@ -1,12 +1,13 @@
 # Prediction interface for Cog
 from cog import BasePredictor, Input, Path
 import torch, os, sys
+from PIL import Image
 from diffusers.utils import load_image
 from torchvision import transforms
 from transformers import AutoModelForImageSegmentation
 
-sys.path.append("./script")
-from download_weights import start_download
+# sys.path.append("./script")
+# from download_weights import start_download
 
 MODEL_CACHE = "model-cache/"
 DEVICE = "cuda"
@@ -42,14 +43,24 @@ class Predictor(BasePredictor):
 
         return image
     
+    def get_image(self, image: str):
+        image = Image.open(image).convert("RGB")
+        transform = transforms.Compose(
+            [
+                transforms.ToTensor(),
+                transforms.Lambda(lambda x: 2.0 * x - 1.0),
+            ]
+        )
+        img: torch.Tensor = transform(image)
+        return img[None, ...]
+    
 
     def predict(
         self,
         image: Path = Input(description="Remove background from this image"),
     ) -> Path:
         print("Start inference")
-        image = load_image(image)
-        image = image.convert("RGB")
+        image = self.get_image(image)
         transparent = self.process(image)
         
         save_path = "/tmp/output.png"
