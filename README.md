@@ -14,7 +14,7 @@ Then, you can run predictions:
 
 Input shoe image
 
-![alt text](giraffa.jpg)
+![alt text](giraffa.png)
 
 Output shoe image with background removed
 
