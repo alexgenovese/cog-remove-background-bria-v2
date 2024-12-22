@@ -1,3 +1,4 @@
+python-dotenv==1.0.1
 torch
 accelerate
 opencv-python
@@ -13,4 +14,3 @@ huggingface_hub
 transformers>=4.22.0
 diffusers
 Pillow
-python-dotenv
