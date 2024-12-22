@@ -3,6 +3,8 @@ from huggingface_hub import login
 from transformers import AutoModelForImageSegmentation
 from dotenv import load_dotenv
 
+load_dotenv()
+
 HF_TOKEN = os.getenv('HF_TOKEN')
 MODEL_CACHE = "model-cache/"
 logged_in = False 
