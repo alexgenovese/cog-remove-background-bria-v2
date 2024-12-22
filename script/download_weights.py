@@ -1,8 +1,9 @@
 import os, sys, tqdm
 from huggingface_hub import login
 from transformers import AutoModelForImageSegmentation
+from dotenv import load_dotenv
 
-HF_TOKEN = "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"
+HF_TOKEN = os.getenv('HF_TOKEN')
 MODEL_CACHE = "model-cache/"
 logged_in = False 
 
