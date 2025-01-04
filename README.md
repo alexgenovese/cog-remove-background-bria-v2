@@ -1,26 +1,64 @@
-# BRIA 2.0
+# 🎨 BRIA 2.0 Background Remover
 
-This is an implementation of the [briaai/RMBG-2.0](https://huggingface.co/briaai/RMBG-2.0) as a Cog model. [Cog packages machine learning models as standard containers.](https://github.com/replicate/cog)
+> Professional-grade background removal powered by BRIA AI's RMBG-2.0 model, implemented for Replicate using Cog
 
-First, download the pre-trained weights:
+## 🚀 Features
 
-    cog run script/download-weights
+- State-of-the-art background removal
+- Handles multiple image categories
+- Professional-grade segmentation
+- Optimized for commercial content
 
-Then, you can run predictions:
+## 🛠️ Quick Start
 
-    cog predict -i image=@giraffa.webp
+### Setup
+```bash
+# Download pre-trained weights
+cog run script/download-weights
 
-## Example
+# Run a prediction
+cog predict -i image=@your-image.jpg
+```
 
-Input shoe image
+## 📊 Model Capabilities
 
-![alt text](giraffa.png)
+| Content Type | Support Level |
+|--------------|---------------|
+| Objects | 45.11% |
+| People & Objects | 25.24% |
+| People Only | 17.35% |
+| Mixed Content | 8.52% |
+| Text | 2.52% |
+| Animals | 1.89% |
 
-Output shoe image with background removed
+## 🎯 Use Cases
+- E-commerce product photography
+- Professional content creation
+- Digital advertising
+- Gaming assets
+- Stock image processing
 
-![alt text](output.png)
+## 📸 Example Results
 
+**Before**
 
-## BRIA Background Removal v2.0 Model Card
-RMBG v2.0 is our new state-of-the-art background removal model significantly improves RMBG v1.4. The model is designed to effectively separate foreground from background in a range of categories and image types.
+Input Image
 
+**After**
+
+Output Image
+
+## ⚙️ Technical Specifications
+- Architecture: BiRefNet
+- Input Resolution: Up to 1024x1024
+- Output Format: PNG with transparency
+- Processing: CUDA-optimized
+
+## 🤝 Credits
+Powered by [BRIA AI's RMBG-2.0](https://huggingface.co/briaai/RMBG-2.0)[1]
+
+---
+*Built with Cog for seamless deployment on Replicate*
+
+Citations:
+[1] https://huggingface.co/briaai/RMBG-2.0
